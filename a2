@@ -1,0 +1,119 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "1dc74ec4-df29-46f8-808c-48c5ffb3785f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Collecting imgui[full]\n",
+      "  Downloading imgui-1.4.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (3.4 MB)\n",
+      "     |████████████████████████████████| 3.4 MB 6.7 MB/s            \n",
+      "\u001b[?25hCollecting pygame\n",
+      "  Downloading pygame-2.1.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.3 MB)\n",
+      "     |████████████████████████████████| 18.3 MB 38.4 MB/s            \n",
+      "\u001b[?25hCollecting PySDL2\n",
+      "  Downloading PySDL2-0.9.9-py3-none-any.whl (562 kB)\n",
+      "     |████████████████████████████████| 562 kB 72.0 MB/s            \n",
+      "\u001b[?25hRequirement already satisfied: Cython<0.30,>=0.24 in /home/jupyter/.local/lib/python3.7/site-packages (from imgui[full]) (0.29.24)\n",
+      "Collecting pyglet\n",
+      "  Downloading pyglet-1.5.21-py3-none-any.whl (1.1 MB)\n",
+      "     |████████████████████████████████| 1.1 MB 72.3 MB/s            \n",
+      "\u001b[?25hCollecting glfw\n",
+      "  Downloading glfw-2.4.0-py2.py27.py3.py30.py31.py32.py33.py34.py35.py36.py37.py38-none-manylinux2014_x86_64.whl (205 kB)\n",
+      "     |████████████████████████████████| 205 kB 61.6 MB/s            \n",
+      "\u001b[?25hCollecting PyOpenGL\n",
+      "  Downloading PyOpenGL-3.1.5-py3-none-any.whl (2.4 MB)\n",
+      "     |████████████████████████████████| 2.4 MB 50.5 MB/s            \n",
+      "\u001b[?25hCollecting cocos2d\n",
+      "  Downloading cocos2d-0.6.9.tar.gz (4.7 MB)\n",
+      "     |████████████████████████████████| 4.7 MB 68.1 MB/s            \n",
+      "\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25ldone\n",
+      "\u001b[?25hRequirement already satisfied: six>=1.4 in /opt/conda/lib/python3.7/site-packages (from cocos2d->imgui[full]) (1.16.0)\n",
+      "Building wheels for collected packages: cocos2d\n",
+      "  Building wheel for cocos2d (setup.py) ... \u001b[?25ldone\n",
+      "\u001b[?25h  Created wheel for cocos2d: filename=cocos2d-0.6.9-py3-none-any.whl size=305866 sha256=38d80065b8d2c790dbcfa251fc6f9a50d0d93898ad9eec80d3c186b07fad9bc2\n",
+      "  Stored in directory: /home/jupyter/.cache/pip/wheels/f4/2c/8e/4707e3be47dd6297db97667971c6a3f3806fdb69c79f39955a\n",
+      "Successfully built cocos2d\n",
+      "Installing collected packages: pyglet, PySDL2, PyOpenGL, pygame, imgui, glfw, cocos2d\n",
+      "Successfully installed PyOpenGL-3.1.5 PySDL2-0.9.9 cocos2d-0.6.9 glfw-2.4.0 imgui-1.4.1 pygame-2.1.0 pyglet-1.5.21\n"
+     ]
+    }
+   ],
+   "source": [
+    "!pip install imgui[full]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "6bb22597-4223-4414-8804-228c2a26ed23",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import imgui\n",
+    "\n",
+    "# initilize imgui context (see documentation)\n",
+    "imgui.create_context()\n",
+    "imgui.get_io().display_size = 100, 100\n",
+    "imgui.get_io().fonts.get_tex_data_as_rgba32()\n",
+    "\n",
+    "# start new frame context\n",
+    "imgui.new_frame()\n",
+    "\n",
+    "# open new window context\n",
+    "imgui.begin(\"Your first window!\", True)\n",
+    "\n",
+    "# draw text label inside of current window\n",
+    "imgui.text(\"Hello world!\")\n",
+    "\n",
+    "# close current window context\n",
+    "imgui.end()\n",
+    "\n",
+    "# pass all drawing comands to the rendering pipeline\n",
+    "# and close frame context\n",
+    "imgui.render()\n",
+    "imgui.end_frame()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "59e190fc-fa64-451f-9fc8-2ac412af3069",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "environment": {
+   "kernel": "python3",
+   "name": "tf2-gpu.2-6.m84",
+   "type": "gcloud",
+   "uri": "gcr.io/deeplearning-platform-release/tf2-gpu.2-6:m84"
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
